@@ -8,7 +8,7 @@ variable "name" {
 }
 
 variable "subnet_ids" {
-  type = list
+  type = list(any)
 }
 
 variable "vpc_id" {

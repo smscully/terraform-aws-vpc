@@ -1,5 +1,5 @@
 variable "network_acl_id" {
-  type    = string
+  type = string
 }
 
 variable "rule_number" {
