@@ -2,7 +2,8 @@
 # Configure AWS Provider
 ########################################
 provider "aws" {
-  region = var.aws_region
+  region  = "us-east-1"
+  profile = "default"
 }
 
 ########################################
@@ -97,6 +98,9 @@ module "Subnet_DB_2" {
   map_public_ip_on_launch = false
 }
 
+########################################
+# Call NAT Gateway Module
+########################################
 module "NAT_Gateway_1" {
   source           = "../modules/nat"
   name             = "NAT Gateway 1"

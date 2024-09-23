@@ -1,5 +1,5 @@
 ########################################
-# Retrieve list of AZs
+# Retrieve List of AZs
 ########################################
 data "aws_availability_zones" "available" {}
 
