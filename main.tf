@@ -10,7 +10,7 @@ provider "aws" {
 # Call VPC Module
 ########################################
 module "VPC" {
-  source           = "../modules/vpc"
+  source           = "./modules/vpc"
   environment_name = var.environment_name
   cidr_block       = "10.0.0.0/16"
 }
