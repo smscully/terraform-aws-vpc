@@ -34,7 +34,7 @@ A total of four (4) security groups are generated. Each security group functions
 For example, the application tier security group (Security Group App) allows ingress traffic only on port 443 from instances in the web tier security group (Security Group Web). Egress is limited to port 3306 traffic destined for instances in the database tier security group (Security Group DB). Because security groups are stateful, response traffic is allowed for each of these rules.
 
 ## Terraform Local Modules
-Terraform local modules are invoked by [main.tf](../main.tf) to create the AWS resources listed above. Following Terraform best practices, each module directory includes `main.tf`, `variables.tf`, `outputs.tf`, `providers.tf`, and `README.md` files. The modules, along with their locations and descriptions, are listed below.
+Terraform local modules are invoked by [main.tf](./main.tf) to create the AWS resources listed above. Following Terraform best practices, each module directory includes `main.tf`, `variables.tf`, `outputs.tf`, `providers.tf`, and `README.md` files. The modules, along with their locations and descriptions, are listed below.
 
 |Module|Location|Description|
 |------|--------|-----------|
