@@ -19,7 +19,7 @@ module "VPC" {
 # Call Subnet Module
 ########################################
 module "Subnet_Pub_1" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet Pub 1"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -29,7 +29,7 @@ module "Subnet_Pub_1" {
 }
 
 module "Subnet_Pub_2" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet Pub 2"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -39,7 +39,7 @@ module "Subnet_Pub_2" {
 }
 
 module "Subnet_Web_1" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet Web 1"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -49,7 +49,7 @@ module "Subnet_Web_1" {
 }
 
 module "Subnet_Web_2" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet Web 2"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -59,7 +59,7 @@ module "Subnet_Web_2" {
 }
 
 module "Subnet_App_1" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet App 1"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -69,7 +69,7 @@ module "Subnet_App_1" {
 }
 
 module "Subnet_App_2" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet App 2"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -79,7 +79,7 @@ module "Subnet_App_2" {
 }
 
 module "Subnet_DB_1" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet DB 1"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -89,7 +89,7 @@ module "Subnet_DB_1" {
 }
 
 module "Subnet_DB_2" {
-  source                  = "../modules/subnet"
+  source                  = "./modules/subnet"
   name                    = "Subnet DB 2"
   environment_name        = var.environment_name
   vpc_id                  = module.VPC.vpc_id
@@ -102,14 +102,14 @@ module "Subnet_DB_2" {
 # Call NAT Gateway Module
 ########################################
 module "NAT_Gateway_1" {
-  source           = "../modules/nat"
+  source           = "./modules/nat"
   name             = "NAT Gateway 1"
   environment_name = var.environment_name
   subnet_id        = module.Subnet_Pub_1.subnet_id
 }
 
 module "NAT_Gateway_2" {
-  source           = "../modules/nat"
+  source           = "./modules/nat"
   name             = "NAT Gateway 2"
   environment_name = var.environment_name
   subnet_id        = module.Subnet_Pub_2.subnet_id
@@ -119,7 +119,7 @@ module "NAT_Gateway_2" {
 # Call Route Table Module
 ########################################
 module "Subnet_Pub_1_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet Pub 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -130,7 +130,7 @@ module "Subnet_Pub_1_Route_Table" {
 }
 
 module "Subnet_Pub_2_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet Pub 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -141,7 +141,7 @@ module "Subnet_Pub_2_Route_Table" {
 }
 
 module "Subnet_Web_1_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet Web 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -152,7 +152,7 @@ module "Subnet_Web_1_Route_Table" {
 }
 
 module "Subnet_Web_2_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet Web 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -163,7 +163,7 @@ module "Subnet_Web_2_Route_Table" {
 }
 
 module "Subnet_App_1_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet App 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -174,7 +174,7 @@ module "Subnet_App_1_Route_Table" {
 }
 
 module "Subnet_App_2_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet App 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -185,7 +185,7 @@ module "Subnet_App_2_Route_Table" {
 }
 
 module "Subnet_DB_1_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet DB 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -196,7 +196,7 @@ module "Subnet_DB_1_Route_Table" {
 }
 
 module "Subnet_DB_2_Route_Table" {
-  source           = "../modules/rt"
+  source           = "./modules/rt"
   name             = "Subnet DB 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -210,28 +210,28 @@ module "Subnet_DB_2_Route_Table" {
 # Call Security Group Module
 ########################################
 module "Security_Group_Pub" {
-  source      = "../modules/sg"
+  source      = "./modules/sg"
   name        = "Security Group Pub"
   description = "Security group for public access servers"
   vpc_id      = module.VPC.vpc_id
 }
 
 module "Security_Group_Web" {
-  source      = "../modules/sg"
+  source      = "./modules/sg"
   name        = "Security Group Web"
   description = "Security group for web servers"
   vpc_id      = module.VPC.vpc_id
 }
 
 module "Security_Group_App" {
-  source      = "../modules/sg"
+  source      = "./modules/sg"
   name        = "Security Group App"
   description = "Security group for app servers"
   vpc_id      = module.VPC.vpc_id
 }
 
 module "Security_Group_DB" {
-  source      = "../modules/sg"
+  source      = "./modules/sg"
   name        = "Security Group DB"
   description = "Security group for DB servers"
   vpc_id      = module.VPC.vpc_id
@@ -241,7 +241,7 @@ module "Security_Group_DB" {
 # Call Security Group Rule Module
 ########################################
 module "Ingress_Rule_Pub" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_Pub.security_group_id
   cidr_ipv4                    = "192.168.0.0/16"
   referenced_security_group_id = null
@@ -253,7 +253,7 @@ module "Ingress_Rule_Pub" {
 }
 
 module "Egress_Rule_Pub" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_Pub.security_group_id
   cidr_ipv4                    = null
   referenced_security_group_id = module.Security_Group_Web.security_group_id
@@ -265,7 +265,7 @@ module "Egress_Rule_Pub" {
 }
 
 module "Ingress_Rule_Web" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_Web.security_group_id
   cidr_ipv4                    = null
   referenced_security_group_id = module.Security_Group_Pub.security_group_id
@@ -277,7 +277,7 @@ module "Ingress_Rule_Web" {
 }
 
 module "Egress_Rule_Web" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_Web.security_group_id
   cidr_ipv4                    = null
   referenced_security_group_id = module.Security_Group_App.security_group_id
@@ -289,7 +289,7 @@ module "Egress_Rule_Web" {
 }
 
 module "Ingress_Rule_App" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_App.security_group_id
   cidr_ipv4                    = null
   referenced_security_group_id = module.Security_Group_Web.security_group_id
@@ -301,7 +301,7 @@ module "Ingress_Rule_App" {
 }
 
 module "Egress_Rule_App" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_App.security_group_id
   cidr_ipv4                    = null
   referenced_security_group_id = module.Security_Group_DB.security_group_id
@@ -313,7 +313,7 @@ module "Egress_Rule_App" {
 }
 
 module "Ingress_Rule_DB" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_DB.security_group_id
   cidr_ipv4                    = null
   referenced_security_group_id = module.Security_Group_App.security_group_id
@@ -325,7 +325,7 @@ module "Ingress_Rule_DB" {
 }
 
 module "Egress_Rule_DB" {
-  source                       = "../modules/sg_rule"
+  source                       = "./modules/sg_rule"
   security_group_id            = module.Security_Group_DB.security_group_id
   cidr_ipv4                    = "127.0.0.1/32"
   referenced_security_group_id = null
@@ -340,7 +340,7 @@ module "Egress_Rule_DB" {
 # Call Network ACL Module
 ########################################
 module "NACL_Subnet_Pub_1" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet Pub 1"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -348,7 +348,7 @@ module "NACL_Subnet_Pub_1" {
 }
 
 module "NACL_Subnet_Pub_2" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet Pub 2"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -356,7 +356,7 @@ module "NACL_Subnet_Pub_2" {
 }
 
 module "NACL_Subnet_Web_1" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet Web 1"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -364,7 +364,7 @@ module "NACL_Subnet_Web_1" {
 }
 
 module "NACL_Subnet_Web_2" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet Web 2"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -372,7 +372,7 @@ module "NACL_Subnet_Web_2" {
 }
 
 module "NACL_Subnet_App_1" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet App 1"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -380,7 +380,7 @@ module "NACL_Subnet_App_1" {
 }
 
 module "NACL_Subnet_App_2" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet App 2"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -388,7 +388,7 @@ module "NACL_Subnet_App_2" {
 }
 
 module "NACL_Subnet_DB_1" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet DB 1"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -396,7 +396,7 @@ module "NACL_Subnet_DB_1" {
 }
 
 module "NACL_Subnet_DB_2" {
-  source           = "../modules/nacl"
+  source           = "./modules/nacl"
   name             = "NACL Subnet DB 2"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
@@ -407,7 +407,7 @@ module "NACL_Subnet_DB_2" {
 # Call Network ACL Rule Module
 ########################################
 module "Inbound_Rule_100_Pub_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_1.network_acl_id
   rule_number    = "100"
   egress         = false
@@ -419,7 +419,7 @@ module "Inbound_Rule_100_Pub_1" {
 }
 
 module "Inbound_Rule_110_Pub_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_1.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -431,7 +431,7 @@ module "Inbound_Rule_110_Pub_1" {
 }
 
 module "Outbound_Rule_100_Pub_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_1.network_acl_id
   rule_number    = "100"
   egress         = true
@@ -443,7 +443,7 @@ module "Outbound_Rule_100_Pub_1" {
 }
 
 module "Outbound_Rule_110_Pub_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_1.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -455,7 +455,7 @@ module "Outbound_Rule_110_Pub_1" {
 }
 
 module "Inbound_Rule_100_Pub_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_2.network_acl_id
   rule_number    = "100"
   egress         = false
@@ -467,7 +467,7 @@ module "Inbound_Rule_100_Pub_2" {
 }
 
 module "Inbound_Rule_110_Pub_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_2.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -479,7 +479,7 @@ module "Inbound_Rule_110_Pub_2" {
 }
 
 module "Outbound_Rule_100_Pub_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_2.network_acl_id
   rule_number    = "100"
   egress         = true
@@ -491,7 +491,7 @@ module "Outbound_Rule_100_Pub_2" {
 }
 
 module "Outbound_Rule_110_Pub_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Pub_2.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -503,7 +503,7 @@ module "Outbound_Rule_110_Pub_2" {
 }
 
 module "Inbound_Rule_100_Web_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_1.network_acl_id
   rule_number    = "100"
   egress         = false
@@ -515,7 +515,7 @@ module "Inbound_Rule_100_Web_1" {
 }
 
 module "Inbound_Rule_110_Web_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_1.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -527,7 +527,7 @@ module "Inbound_Rule_110_Web_1" {
 }
 
 module "Outbound_Rule_100_Web_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_1.network_acl_id
   rule_number    = "100"
   egress         = true
@@ -539,7 +539,7 @@ module "Outbound_Rule_100_Web_1" {
 }
 
 module "Outbound_Rule_110_Web_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_1.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -551,7 +551,7 @@ module "Outbound_Rule_110_Web_1" {
 }
 
 module "Inbound_Rule_100_Web_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_2.network_acl_id
   rule_number    = "100"
   egress         = false
@@ -563,7 +563,7 @@ module "Inbound_Rule_100_Web_2" {
 }
 
 module "Inbound_Rule_110_Web_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_2.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -575,7 +575,7 @@ module "Inbound_Rule_110_Web_2" {
 }
 
 module "Outbound_Rule_100_Web_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_2.network_acl_id
   rule_number    = "100"
   egress         = true
@@ -587,7 +587,7 @@ module "Outbound_Rule_100_Web_2" {
 }
 
 module "Outbound_Rule_110_Web_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_Web_2.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -599,7 +599,7 @@ module "Outbound_Rule_110_Web_2" {
 }
 
 module "Inbound_Rule_100_App_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_1.network_acl_id
   rule_number    = "100"
   egress         = false
@@ -611,7 +611,7 @@ module "Inbound_Rule_100_App_1" {
 }
 
 module "Inbound_Rule_110_App_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_1.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -623,7 +623,7 @@ module "Inbound_Rule_110_App_1" {
 }
 
 module "Outbound_Rule_100_App_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_1.network_acl_id
   rule_number    = "100"
   egress         = true
@@ -635,7 +635,7 @@ module "Outbound_Rule_100_App_1" {
 }
 
 module "Outbound_Rule_110_App_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_1.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -647,7 +647,7 @@ module "Outbound_Rule_110_App_1" {
 }
 
 module "Inbound_Rule_100_App_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_2.network_acl_id
   rule_number    = "100"
   egress         = false
@@ -659,7 +659,7 @@ module "Inbound_Rule_100_App_2" {
 }
 
 module "Inbound_Rule_110_App_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_2.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -671,7 +671,7 @@ module "Inbound_Rule_110_App_2" {
 }
 
 module "Outbound_Rule_100_App_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_2.network_acl_id
   rule_number    = "100"
   egress         = true
@@ -683,7 +683,7 @@ module "Outbound_Rule_100_App_2" {
 }
 
 module "Outbound_Rule_110_App_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_App_2.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -695,7 +695,7 @@ module "Outbound_Rule_110_App_2" {
 }
 
 module "Inbound_Rule_110_DB_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_DB_1.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -707,7 +707,7 @@ module "Inbound_Rule_110_DB_1" {
 }
 
 module "Outbound_Rule_110_DB_1" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_DB_1.network_acl_id
   rule_number    = "110"
   egress         = true
@@ -719,7 +719,7 @@ module "Outbound_Rule_110_DB_1" {
 }
 
 module "Inbound_Rule_110_DB_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_DB_2.network_acl_id
   rule_number    = "110"
   egress         = false
@@ -731,7 +731,7 @@ module "Inbound_Rule_110_DB_2" {
 }
 
 module "Outbound_Rule_110_DB_2" {
-  source         = "../modules/nacl_rule"
+  source         = "./modules/nacl_rule"
   network_acl_id = module.NACL_Subnet_DB_2.network_acl_id
   rule_number    = "110"
   egress         = true
