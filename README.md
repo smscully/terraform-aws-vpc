@@ -51,8 +51,8 @@ Terraform local modules are invoked by [main.tf](../main.tf) to create the AWS r
 
 ### Dependencies
 
-+ Terraform (For installation instructions, [click here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-+ AWS CLI (For installation instructions, [click here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
++ Terraform (For installation instructions, [click here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli))
++ AWS CLI (For installation instructions, [click here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html))
 + Established connection to an AWS account
 
 ### Installation
