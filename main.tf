@@ -123,9 +123,6 @@ module "Subnet_Pub_1_Route_Table" {
   name             = "Subnet Pub 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = module.VPC.gateway_id
-  nat_gateway_id   = null
   subnet_id        = module.Subnet_Pub_1.subnet_id
 }
 
@@ -134,9 +131,6 @@ module "Subnet_Pub_2_Route_Table" {
   name             = "Subnet Pub 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = module.VPC.gateway_id
-  nat_gateway_id   = null
   subnet_id        = module.Subnet_Pub_2.subnet_id
 }
 
@@ -145,9 +139,6 @@ module "Subnet_Web_1_Route_Table" {
   name             = "Subnet Web 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = null
-  nat_gateway_id   = module.NAT_Gateway_1.nat_gateway_id
   subnet_id        = module.Subnet_Web_1.subnet_id
 }
 
@@ -156,9 +147,6 @@ module "Subnet_Web_2_Route_Table" {
   name             = "Subnet Web 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = null
-  nat_gateway_id   = module.NAT_Gateway_2.nat_gateway_id
   subnet_id        = module.Subnet_Web_2.subnet_id
 }
 
@@ -167,9 +155,6 @@ module "Subnet_App_1_Route_Table" {
   name             = "Subnet App 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = null
-  nat_gateway_id   = module.NAT_Gateway_1.nat_gateway_id
   subnet_id        = module.Subnet_App_1.subnet_id
 }
 
@@ -178,9 +163,6 @@ module "Subnet_App_2_Route_Table" {
   name             = "Subnet App 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = null
-  nat_gateway_id   = module.NAT_Gateway_2.nat_gateway_id
   subnet_id        = module.Subnet_App_2.subnet_id
 }
 
@@ -189,9 +171,6 @@ module "Subnet_DB_1_Route_Table" {
   name             = "Subnet DB 1 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = null
-  nat_gateway_id   = null
   subnet_id        = module.Subnet_DB_1.subnet_id
 }
 
@@ -200,10 +179,46 @@ module "Subnet_DB_2_Route_Table" {
   name             = "Subnet DB 2 Route Table"
   environment_name = var.environment_name
   vpc_id           = module.VPC.vpc_id
-  cidr_block       = "0.0.0.0/0"
-  gateway_id       = null
-  nat_gateway_id   = null
   subnet_id        = module.Subnet_DB_2.subnet_id
+}
+
+########################################
+# Call Route Table Route Module
+########################################
+module "Subnet_Pub_1_Route_Table_Route" {
+  source         = "./modules/rt_route"
+  route_table_id = module.Subnet_Pub_1_Route_Table.route_table_id
+  gateway_id     = module.VPC.gateway_id
+}
+
+module "Subnet_Pub_2_Route_Table_Route" {
+  source         = "./modules/rt_route"
+  route_table_id = module.Subnet_Pub_2_Route_Table.route_table_id
+  gateway_id     = module.VPC.gateway_id
+}
+
+module "Subnet_Web_1_Route_Table_Route" {
+  source         = "./modules/rt_route"
+  route_table_id = module.Subnet_Web_1_Route_Table.route_table_id
+  nat_gateway_id = module.NAT_Gateway_1.nat_gateway_id
+}
+
+module "Subnet_Web_2_Route_Table_Route" {
+  source         = "./modules/rt_route"
+  route_table_id = module.Subnet_Web_2_Route_Table.route_table_id
+  nat_gateway_id = module.NAT_Gateway_2.nat_gateway_id
+}
+
+module "Subnet_App_1_Route_Table_Route" {
+  source         = "./modules/rt_route"
+  route_table_id = module.Subnet_App_1_Route_Table.route_table_id
+  nat_gateway_id = module.NAT_Gateway_1.nat_gateway_id
+}
+
+module "Subnet_App_2_Route_Table_Route" {
+  source         = "./modules/rt_route"
+  route_table_id = module.Subnet_App_2_Route_Table.route_table_id
+  nat_gateway_id = module.NAT_Gateway_2.nat_gateway_id
 }
 
 ########################################
