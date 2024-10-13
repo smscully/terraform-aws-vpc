@@ -21,7 +21,7 @@ The script creates one IGW, which enables resources in the public subnets to rea
 ### Public Subnets, Private Subnets, and Custom Route Tables
 Two public subnets are created, one in each AZ. Six private subnets are generated, two in each of the web, application, and database tiers, spread across the two AZs. 
 
-A custom route table is created for each subnet. As a result, any routes added to support resources in the subnet do not unintentionally open routes to neighboring subnets in the VPC, which could be the case if all subnets used the main route table. [Click here](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-route-tables.html#custom-route-tables) to review AWS documentation regarding custom route tables. 
+A custom route table is created for each subnet. As a result, any routes added to support resources in the subnet will not unintentionally open routes to neighboring subnets in the VPC, which could be the case if all subnets used the main route table. [Click here](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-route-tables.html#custom-route-tables) to review AWS documentation regarding custom route tables. 
 
 The route tables for the public access subnets each contain a route to the IGW, while the route tables for the web and application tier subnets each contain a route to the NAT gateway in their respective AZ. The route tables for the database tier subnets do not contain routes to the NAT gateway, primarily because hosted services such as AWS RDS do not require internet access for updates. These initial routes should be modified as circumstances dictate.
 
