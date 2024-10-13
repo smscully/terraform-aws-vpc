@@ -1,11 +1,9 @@
 variable "environment_name" {
-  type    = string
-  default = "Project001"
+  type = string
 }
 
 variable "name" {
-  type    = string
-  default = "Subnet_01"
+  type = string
 }
 
 variable "vpc_id" {
@@ -18,8 +16,7 @@ variable "availability_zone" {
 }
 
 variable "cidr_block" {
-  type    = string
-  default = "10.0.10.0/16"
+  type = string
 }
 
 variable "map_public_ip_on_launch" {

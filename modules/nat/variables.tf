@@ -1,6 +1,5 @@
 variable "environment_name" {
-  type    = string
-  default = "Project001"
+  type = string
 }
 
 variable "subnet_id" {

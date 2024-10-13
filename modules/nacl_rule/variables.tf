@@ -7,15 +7,18 @@ variable "rule_number" {
 }
 
 variable "egress" {
-  type = bool
+  type    = bool
+  default = false
 }
 
 variable "protocol" {
-  type = string
+  type    = string
+  default = "tcp"
 }
 
 variable "rule_action" {
-  type = string
+  type    = string
+  default = "allow"
 }
 
 variable "cidr_block" {

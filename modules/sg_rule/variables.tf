@@ -4,11 +4,12 @@ variable "security_group_id" {
 
 variable "cidr_ipv4" {
   type    = string
-  default = "Project001"
+  default = null
 }
 
 variable "referenced_security_group_id" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "from_port" {
@@ -24,9 +25,11 @@ variable "ip_protocol" {
 }
 
 variable "ingress" {
-  type = bool
+  type    = bool
+  default = false
 }
 
 variable "egress" {
-  type = bool
+  type    = bool
+  default = false
 }
