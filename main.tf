@@ -427,18 +427,8 @@ module "Outbound_Rule_100_Pub_1" {
   rule_number    = "100"
   egress         = true
   cidr_block     = "192.168.0.0/16"
-  from_port      = 22
-  to_port        = 22
-}
-
-module "Outbound_Rule_110_Pub_1" {
-  source         = "./modules/nacl_rule"
-  network_acl_id = module.NACL_Subnet_Pub_1.network_acl_id
-  rule_number    = "110"
-  egress         = true
-  cidr_block     = module.Subnet_Web_1.subnet_cidr_block
-  from_port      = 443
-  to_port        = 443
+  from_port      = 1024
+  to_port        = 65535
 }
 
 module "Inbound_Rule_100_Pub_2" {
@@ -465,18 +455,8 @@ module "Outbound_Rule_100_Pub_2" {
   rule_number    = "100"
   egress         = true
   cidr_block     = "192.168.0.0/16"
-  from_port      = 22
-  to_port        = 22
-}
-
-module "Outbound_Rule_110_Pub_2" {
-  source         = "./modules/nacl_rule"
-  network_acl_id = module.NACL_Subnet_Pub_2.network_acl_id
-  rule_number    = "110"
-  egress         = true
-  cidr_block     = module.Subnet_Web_2.subnet_cidr_block
-  from_port      = 443
-  to_port        = 443
+  from_port      = 1024
+  to_port        = 65535
 }
 
 module "Inbound_Rule_100_Web_1" {
